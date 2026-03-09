@@ -29,7 +29,7 @@ export default function MainLayout({ children}) {
                     </nav>
                 </div>
             </header>
-            <main className="flex-grow">
+            <main className="grow">
                 {children}
             </main>
         </div>
