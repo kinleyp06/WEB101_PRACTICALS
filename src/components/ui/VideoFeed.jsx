@@ -34,7 +34,7 @@ const DUMMY_POSTS = [
 
 export default function VideoFeed() {
     return (
-    <div className="max-w-[550px] mx-auto">
+    <div className="max-w-550px mx-auto">
     {DUMMY_POSTS.map((post) => (
     <VideoCard key={post.id} post={post} />
     ))}

@@ -1,6 +1,6 @@
 export default function FollowingPage() {
   return (
-    <div className="max-w-[550px] mx-auto py-10 text-center">
+    <div className="max-w-550px mx-auto py-10 text-center">
       <h2 className="text-2xl font-bold mb-3">Follow accounts</h2>
       <p className="text-gray-500 mb-8">Follow accounts to see their latest videos</p>
       <div className="grid grid-cols-5 gap-4 mb-6">
