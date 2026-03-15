@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import {
     FaHome, FaUserFriends, FaCompass, FaVideo,
-    FaInbox, FaRegUser, FaPlus, FaPlus
+    FaInbox, FaRegUser, FaPlus
 } from 'react-icons/fa';
 
 export default function MainLayout({ children }) {
@@ -11,45 +11,40 @@ export default function MainLayout({ children }) {
             {/* Sidebar*/}
             <div className='w-60 border-r fixed h-full overflow-y-auto'>
                 <div className='p-4'>
-                    <link href='/' className='text-xl font-bold flex items-center'>
-                    <span className='text-red-500 mr-1'>TikTok</span>
-                    </link>
+                    <Link href='/' className='text-xl font-bold flex items-center'>
+                        <span className='text-red-500 mr-1'>TikTok</span>
+                    </Link>
                 </div>
 
                 <nav className='mt-4'>
                     <ul className='space-y-2'>
                         <li>
                             <Link href='/' 
-                            className='flex items-center p-3 hover:bg-gray-100 rounded-md mx-2'>
-                            
-                            <FaHome className='text-xl mr-3' />
-                            <span>For You</span>
+                                className='flex items-center p-3 hover:bg-gray-100 rounded-md mx-2'>
+                                <FaHome className='text-xl mr-3' />
+                                <span>For You</span>
                             </Link>
                         </li>
                         <li>
-                            <link
-                            href='/following'
-                            className='flex items-center p-3 hover:bg-gray-100 rounded-md mx-2'>
-                            
-                            <FaUserFriends className='text-xl mr-3' />
-                            <span>Following</span>
-                            </link>
+                            <Link href='/following'
+                                className='flex items-center p-3 hover:bg-gray-100 rounded-md mx-2'>
+                                <FaUserFriends className='text-xl mr-3' />
+                                <span>Following</span>
+                            </Link>
                         </li>
                         <li>
-                            <link href='/explore'
-                            className='flex items-center p-3 hover:bg-gray-100 rounded-md mx-2'>
-                            
-                            <FaCompass className='text-xl mr-3' />
-                            <span>Explore</span>
-                            </link>
+                            <Link href='/explore'
+                                className='flex items-center p-3 hover:bg-gray-100 rounded-md mx-2'>
+                                <FaCompass className='text-xl mr-3' />
+                                <span>Explore</span>
+                            </Link>
                         </li>
                         <li>
-                            <link href='/live'
-                            className='flex items-center p-3 hover:bg-gray-100 rounded-md mx-2'>
-                            
-                            <FaVideo className='text-xl mr-3' />
-                            <span>LIVE</span>
-                            </link>
+                            <Link href='/live'
+                                className='flex items-center p-3 hover:bg-gray-100 rounded-md mx-2'>
+                                <FaVideo className='text-xl mr-3' />
+                                <span>LIVE</span>
+                            </Link>
                         </li>
                     </ul>
                 </nav>
@@ -67,19 +62,28 @@ export default function MainLayout({ children }) {
                     ))}
                 </div>
 
+                {/* Change 1: Update the Login Button in the Sidebar */}
                 <div className='px-3 py-4 mt-2'>
                     <p className='text-sm text-gray-500 mb-4'>
                         Log in to follow creators, like videos, and view comments.
                     </p>
-                    <button className='w-full py-2 px-4 border rounded-md font-medium mb-2'>
-                        Login
-                    </button>
+                    <Link href="/login">
+                        <button className="w-full py-2 px-4 border rounded-md font-medium mb-2 hover:bg-gray-50">
+                            Log in
+                        </button>
+                    </Link>
+                    <Link href="/signup">
+                        <button className="w-full py-2 px-4 bg-red-500 text-white rounded-md font-medium hover:bg-red-600">
+                            Sign up
+                        </button>
+                    </Link>
                 </div>
 
                 <div className='border-t px-3 py-4 text-xs text-gray-500'>
                     <p className='mb-2'>© 2025 TikTok</p>
                 </div>
              </div>
+             
              {/* Main content */}
              <div className='ml-60 flex-1'>
                 <div className='max-w-1150px mx-auto'>
@@ -91,29 +95,30 @@ export default function MainLayout({ children }) {
                                 <input
                                     type='text'
                                     placeholder='Search accounts and videos'
-                                    className='w-full bg-gray-100 py-2 pl-10 pr-4 rouned-full'/>
-                                    <FaCompass className='absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400' />
-                                </div>
+                                    className='w-full bg-gray-100 py-2 pl-10 pr-4 rounded-full'/>
+                                <FaCompass className='absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400' />
                             </div>
-                            <div className='w-1/3 flex justify-end space-x-4'>
-                                <Link href='/upload'>
-                                    <button className='border px-3 py-1 rounded-md hover:bg-gray-50 flex items-center'>
-                                        <FaPlus className='mr-2' /> Upload
-                                    </button>
-                                </Link>
-                                    
-                                <button className='bg-red-500 text-white px-6 py-1 rounded-md'>
-                                        Log in
+                        </div>
+                        <div className='w-1/3 flex justify-end space-x-4'>
+                            <Link href='/upload'>
+                                <button className='border px-3 py-1 rounded-md hover:bg-gray-50 flex items-center'>
+                                    <FaPlus className='mr-2' /> Upload
                                 </button>
-                            </div>
-                            <div>
-                                <Link href='/profile'
-                                className='flex items-center p-3 hover:bg-gray-100 rouned-md mx-2'>
-                                    
+                            </Link>
+                            
+                            {/* Change 2: Update the Header Login Button */}
+                            <Link href="/login">
+                                <button className="bg-red-500 text-white px-6 py-1 rounded-md hover:bg-red-600">
+                                    Log in
+                                </button>
+                            </Link>
+                            
+                            <Link href='/profile'
+                                className='flex items-center p-3 hover:bg-gray-100 rounded-md mx-2'>
                                 <FaRegUser className='text-xl mr-3' />
                                 <span>profile</span>
-                                </Link>
-                            </div>
+                            </Link>
+                        </div>
                     </header>
 
                     {/*Main Content*/}
@@ -123,4 +128,3 @@ export default function MainLayout({ children }) {
         </div>
     );
 }
-
