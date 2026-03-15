@@ -12,7 +12,7 @@ export default function UploadPage() {
       
       <div className="flex gap-8">
         {/* Left side - Upload area */}
-        <div className="w-[360px] border-2 border-dashed border-gray-300 rounded-lg p-6 flex flex-col items-center text-center">
+        <div className="w-360px border-2 border-dashed border-gray-300 rounded-lg p-6 flex flex-col items-center text-center">
           <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center mb-4">
             <span className="text-4xl text-gray-400">+</span>
           </div>

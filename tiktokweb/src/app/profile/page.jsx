@@ -71,7 +71,7 @@ export default function ProfilePage() {
       {/* Video grid */}
       <div className="grid grid-cols-3 gap-1 mt-4">
         {Array.from({ length: 9 }).map((_, index) => (
-          <div key={index} className="aspect-[9/16] bg-gray-200 relative group">
+          <div key={index} className="aspect-9/16 bg-gray-200 relative group">
             <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
               <div className="flex gap-4 text-white">
                 <span className="flex items-center">

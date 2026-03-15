@@ -9,10 +9,10 @@ export default function LoginPage() {
 
   const onSubmit = async (data) => {
     setIsLoading(true);
-    // In a real app, you would call an authentication API here
+    
     console.log('Login data:', data);
     
-    // Simulate API call
+    
     setTimeout(() => {
       setIsLoading(false);
       alert('Login successful (demo only)');
