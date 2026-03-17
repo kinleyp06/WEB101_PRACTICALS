@@ -1,5 +1,5 @@
 const WEATHER_API_KEY = '288ff438394c88d8f1742b69f9776de9';
-const WEATHER_API_URL = 'https://api.openweathermap.org/data/2.5/weather';
+const WEATHER_API_URL = 'https://api.openweathermap.org/data/2.5/weather'; //To obtain API Key //
 const PLACEHOLDER_API_URL = 'https://jsonplaceholder.typicode.com/posts';
 
 let savedLocations = [];

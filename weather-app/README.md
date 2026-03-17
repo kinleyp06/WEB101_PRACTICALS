@@ -1,6 +1,5 @@
 # README.md
 
-```markdown
 # Weather API Dashboard
 
 A simple app to check weather and save locations using GET, POST, PUT, DELETE requests.
@@ -29,6 +28,7 @@ const WEATHER_API_KEY = 'API Key'; // Replace with your API Key
 - New API keys can take an hour to activate
 - The fake API resets on page refresh
 - Country codes work best as two letters (US, GB, JP)
-```
 
-That's it. Short and simple.
+## Final Output:
+
+<img src=""D:\weather-app.png"" alt="Alt text" style="width:100px;height:100px;">

@@ -1,7 +1,6 @@
 
 # Reflection.md
 
-```markdown
 # Reflection: Building the Weather API App
 
 ## What I Was Trying to Do
