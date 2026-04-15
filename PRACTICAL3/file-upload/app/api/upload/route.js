@@ -1,34 +1,45 @@
-import { NextResponse } from 'next/server'
+import { writeFile, mkdir } from 'fs/promises';
+import { NextResponse } from 'next/server';
+import { join } from 'path';
 
 export async function POST(request) {
   try {
-    const formData = await request.formData()
-    const file = formData.get('file')
-    
+    const formData = await request.formData();
+    const file = formData.get('file');
+
     if (!file) {
       return NextResponse.json(
         { error: 'No file uploaded' },
         { status: 400 }
-      )
+      );
     }
-    
-    // Get file details
-    const bytes = await file.arrayBuffer()
-    const buffer = Buffer.from(bytes)
-    
-    // Save file or process it
-    console.log('File received:', file.name, 'Size:', buffer.length)
-    
-    return NextResponse.json({ 
+
+    const bytes = await file.arrayBuffer();
+    const buffer = Buffer.from(bytes);
+
+    // Create the uploads directory if it doesn't exist
+    const uploadDir = join(process.cwd(), 'public', 'uploads');
+    await mkdir(uploadDir, { recursive: true });
+
+    // Create a unique filename
+    const uniqueFilename = `${Date.now()}-${file.name}`;
+    const filePath = join(uploadDir, uniqueFilename);
+
+    // Save the file
+    await writeFile(filePath, buffer);
+
+    return NextResponse.json({
       message: 'File uploaded successfully',
-      fileName: file.name 
-    })
-    
+      filename: uniqueFilename,
+      originalName: file.name,
+      url: `/uploads/${uniqueFilename}`,
+    });
+
   } catch (error) {
-    console.error('Upload error:', error)
+    console.error('Error uploading file:', error);
     return NextResponse.json(
-      { error: error.message },
+      { error: `Error uploading file: ${error.message}` },
       { status: 500 }
-    )
+    );
   }
 }
