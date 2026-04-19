@@ -19,7 +19,7 @@ export default function FileUploadForm() {
   const [uploadResult, setUploadResult] = useState(null);
   const [filePreview, setFilePreview] = useState(null);
 
-  // Update the onSubmit function to use Next.js API route
+  // Update the onSubmit function to use your Express backend URL
   const onSubmit = async (data) => {
     setIsUploading(true);
     setUploadProgress(0);
@@ -33,8 +33,8 @@ export default function FileUploadForm() {
       // Log what we're trying to upload for debugging
       console.log('Uploading file:', data.file[0].name, 'Type:', data.file[0].type);
       
-      // CHANGE THIS LINE - Use Next.js API route instead of Express backend
-      const response = await axios.post('/api/upload', formData, {
+      // Change the URL to point to your Express backend
+      const response = await axios.post('http://localhost:8000/api/upload', formData, {
         onUploadProgress: (progressEvent) => {
           const percentage = Math.round(
             (progressEvent.loaded * 100) / progressEvent.total
