@@ -1,4 +1,3 @@
-// src/app/api/upload/route.js
 import { writeFile, mkdir } from 'fs/promises';
 import { NextResponse } from 'next/server';
 import { join } from 'path';
