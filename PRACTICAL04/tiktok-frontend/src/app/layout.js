@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { AuthProvider } from '../contexts/authContext';
 import { Toaster } from 'react-hot-toast';
 import './globals.css';
-import MainLayout from '../components/layout/MainLayout';
+import MainLayout from '../components/layout/MainLayout.jsx';
 
 export default function RootLayout({ children }) {
    const queryClient = new QueryClient({
