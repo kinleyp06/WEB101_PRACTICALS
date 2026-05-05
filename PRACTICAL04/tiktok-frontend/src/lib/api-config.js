@@ -1,15 +1,16 @@
+// src/lib/api-config.js
 import axios from 'axios';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
-
-const api = axios.create({
-  baseURL: API_BASE_URL,
+// Create axios instance with baseURL
+const apiClient = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api',
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
-api.interceptors.request.use(
+// Request interceptor for adding authorization
+apiClient.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token');
     if (token) {
@@ -17,18 +18,9 @@ api.interceptors.request.use(
     }
     return config;
   },
-  (error) => Promise.reject(error)
-);
-
-api.interceptors.response.use(
-  (response) => response,
   (error) => {
-    if (error.response && error.response.status === 401) {
-      localStorage.removeItem('token');
-      window.location.href = '/login';
-    }
     return Promise.reject(error);
   }
 );
 
-export default api;
+export default apiClient;
