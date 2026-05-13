@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import Modal from '../../components/ui/Modal';
-import { LoginForm, SignupForm } from '../../components/auth/AuthForms';
+import Modal from '../ui/Modal';
+import { LoginForm, SignupForm } from './AuthForms';
 
 const AuthModal = ({ isOpen, onClose, initialTab = 'login' }) => {
   const [activeTab, setActiveTab] = useState(initialTab);
