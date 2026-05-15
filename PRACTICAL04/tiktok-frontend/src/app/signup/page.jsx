@@ -50,7 +50,7 @@ export default function SignupPage() {
     <div className="flex min-h-screen items-center justify-center">
       <form
         onSubmit={handleSubmit}
-        className="w-[400px] rounded-lg bg-white p-6 shadow"
+        className="w-100 rounded-lg bg-white p-6 shadow"
       >
         <h1 className="mb-5 text-3xl font-bold">Signup</h1>
 
